@@ -21,7 +21,7 @@ BASE DE DONNEES
 
 lancer laragon ou wampp ou ...
 
-dans le fichier .env changer DB_DATABASE=laravel par DB_DATABASE=biotopie, vérifier que le username et le passowrd sont bons
+dans le fichier .env changer DB_DATABASE=laravel par DB_DATABASE=biotopie, vérifier que le username et le passoword sont bons
 
 php artisan db:create (créer une base de données nommé biotopie)
 
