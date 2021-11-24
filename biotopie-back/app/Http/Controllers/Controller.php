@@ -10,4 +10,12 @@ use Illuminate\Routing\Controller as BaseController;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    public function handleGetUser(){
+        return response()->json([
+            'name' => 'Abigail',
+            'state' => 'CA',
+        ]);
+
+    }
 }
