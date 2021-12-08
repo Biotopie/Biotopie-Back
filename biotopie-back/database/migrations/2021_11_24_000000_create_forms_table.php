@@ -15,7 +15,6 @@ class CreateFormsTable extends Migration {
         Schema::create("forms", function (Blueprint $table) {
             $table->increments(Forms::ID);
             $table->string(Forms::NAME_SOCIETY);
-            $table->string(Forms::SOCIAL_REASON);
             $table->string(Forms::HEADQUARTER);
             $table->string(Forms::REPRESENTING);
             $table->integer(Forms::PHONE_NUMBER);

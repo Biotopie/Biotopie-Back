@@ -11,7 +11,6 @@ class Forms extends Model {
 
     const ID = "id";
     const NAME_SOCIETY = "nameSociety";
-    const SOCIAL_REASON = "socialReason";
     const HEADQUARTER = "headquarter";
     const REPRESENTING = "representing";
     const PHONE_NUMBER = "phoneNumber";
@@ -19,6 +18,6 @@ class Forms extends Model {
     const DATE = "date";
 
     protected $fillable = [
-        "id", "nameSociety", "socialReason", "headquarter", "representing", "phoneNumber", "email", "date"
+        "id", "nameSociety", "headquarter", "representing", "phoneNumber", "email", "date"
     ];
 }
