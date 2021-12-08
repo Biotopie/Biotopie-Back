@@ -6,14 +6,15 @@ use App\Forms;
 
 class RequeteService {
 
-    static public function createForms($nameSociety, $socialReason, $headquarter, $representing, $phoneNumber, $email) {
+    static public function createForms($nameSociety, $socialReason, $headquarter, $representing, $phoneNumber, $email, $date) {
         return Forms::create([
             "nameSociety" => $nameSociety,
             "socialReason" => $socialReason,
             "headquarter" => $headquarter,
             "representing" => $representing,
             "phoneNumber" => $phoneNumber,
-            "email" => $email
+            "email" => $email,
+            "date" => $date
         ]);
     }
 

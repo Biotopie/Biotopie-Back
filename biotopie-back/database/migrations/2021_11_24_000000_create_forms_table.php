@@ -20,6 +20,7 @@ class CreateFormsTable extends Migration {
             $table->string(Forms::REPRESENTING);
             $table->integer(Forms::PHONE_NUMBER);
             $table->string(Forms::EMAIL);
+            $table->dateTime(Forms::DATE);
         });
     }
 

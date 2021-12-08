@@ -16,8 +16,9 @@ class Forms extends Model {
     const REPRESENTING = "representing";
     const PHONE_NUMBER = "phoneNumber";
     const EMAIL = "email";
+    const DATE = "date";
 
     protected $fillable = [
-        "id", "nameSociety", "socialReason", "headquarter", "representing", "phoneNumber", "email"
+        "id", "nameSociety", "socialReason", "headquarter", "representing", "phoneNumber", "email", "date"
     ];
 }
