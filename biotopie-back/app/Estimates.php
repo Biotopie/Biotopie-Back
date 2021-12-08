@@ -14,8 +14,9 @@ class Estimates extends Model {
     const FORMULA = "formula";
     const MODULES = "modules";
     const DATE = "date";
+    const NAMESOCIETY = "nameSociety";
 
     protected $fillable = [
-        "id", "email", "formula", "modules", "date"
+        "id", "email", "formula", "modules", "date", "nameSociety"
     ];
 }

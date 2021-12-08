@@ -18,6 +18,7 @@ class CreateEstimatesTable extends Migration {
             $table->string(Estimates::FORMULA);
             $table->string(Estimates::MODULES);
             $table->dateTime(Estimates::DATE);
+            $table->string(Estimates::NAMESOCIETY);
         });
     }
 

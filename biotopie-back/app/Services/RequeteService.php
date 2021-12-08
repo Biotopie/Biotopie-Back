@@ -18,12 +18,13 @@ class RequeteService {
         ]);
     }
 
-    static public function createEstimate($email, $formula, $modules, $date) {
+    static public function createEstimate($email, $formula, $modules, $date, $nameSociety) {
         return Forms::create([
             "email" => $email,
             "formula" => $formula,
             "modules" => $modules,
-            "date" => $date
+            "date" => $date,
+            "nameSociety" => $nameSociety
         ]);
     }
 }
