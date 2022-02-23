@@ -11,12 +11,10 @@ use Carbon\Carbon;
 
 class RequeteService {
 
-    static public function createForms($nameSociety, $headquarter, $representing, $phoneNumber, $email, $date) {
+    static public function createForms($nameSociety, $content, $email, $date) {
         return Forms::create([
             "nameSociety" => $nameSociety,
-            "headquarter" => $headquarter,
-            "representing" => $representing,
-            "phoneNumber" => $phoneNumber,
+            "headquarter" => $content,
             "email" => $email,
             "date" => $date
         ]);
