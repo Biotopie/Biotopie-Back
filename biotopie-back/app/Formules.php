@@ -4,18 +4,16 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Estimates extends Model {
-    protected $table = "estimates";
+class Formules extends Model {
+    protected $table = "formules";
     protected $primaryKey = "id";
     public $incrementing = true;
     public $timestamps = false;
 
     const ID = "id";
-    const EMAIL = "email";
-    const DATE = "date";
-    const NAMESOCIETY = "nameSociety";
+    const NAME = "name";
 
     protected $fillable = [
-        "id", "email", "date", "nameSociety"
+        "id", "name"
     ];
 }

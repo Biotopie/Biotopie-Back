@@ -13,10 +13,8 @@ class CreateEstimatesTable extends Migration {
      */
     public function up() {
         Schema::create("estimates", function (Blueprint $table) {
-            $table->increments(Estimates::ID);
+            $table->bigIncrements(Estimates::ID)->autoIncrement();
             $table->string(Estimates::EMAIL);
-            $table->string(Estimates::FORMULA);
-            $table->string(Estimates::MODULES);
             $table->dateTime(Estimates::DATE);
             $table->string(Estimates::NAMESOCIETY);
         });

@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,4 +13,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('cors')->get('/user', 'Controller@handleGetUser');
+Route::middleware('cors')->post('/simulation', 'EstimateController@handleGetSimulation');

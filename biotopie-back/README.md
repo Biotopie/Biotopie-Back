@@ -26,4 +26,6 @@ php artisan db:create (créer une base de données nommé biotopie)
 
 php artisan migrate (ajoute les données dans la base)
 
+composer dump-autoload
+
 php artisan migrate:fresh (mettre à jour les tables dans la base de données)
