@@ -12,8 +12,9 @@ class Modules extends Model {
 
     const ID = "id";
     const NAME = "name";
+    const PRICE = "price";
 
     protected $fillable = [
-        "id", "name"
+        "id", "name", "price"
     ];
 }

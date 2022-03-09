@@ -7,6 +7,7 @@ use Faker\Generator as Faker;
 
 $factory->define(Modules::class, function (Faker $faker) {
     return [
-        Modules::NAME => $faker->text
+        Modules::NAME => $faker->name,
+        Modules::PRICE => $faker->unique()->numberBetween(100, 200)
     ];
 });

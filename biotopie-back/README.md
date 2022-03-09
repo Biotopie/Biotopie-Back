@@ -28,4 +28,4 @@ php artisan migrate (ajoute les données dans la base)
 
 composer dump-autoload
 
-php artisan migrate:fresh (mettre à jour les tables dans la base de données)
+php artisan migrate:fresh --seed (mettre à jour les tables dans la base de données)

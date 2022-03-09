@@ -7,6 +7,7 @@ use Faker\Generator as Faker;
 
 $factory->define(Formules::class, function (Faker $faker) {
     return [
-        Formules::NAME => $faker->text
+        Formules::NAME => $faker->name,
+        Formules::PRICE => $faker->unique()->numberBetween(100, 200)
     ];
 });

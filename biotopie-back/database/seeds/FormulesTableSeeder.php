@@ -11,9 +11,9 @@ class FormulesTableSeeder extends Seeder
      */
     public function run()
     {
-        $names = ['start', 'standard', 'premium', 'personnalisé'];
-        foreach($names as $name) {
-            factory(App\Formules::class, 1)->create(['name' => $name]);
+        $names = [['name' => 'start', 'price' => 100], ['name' => 'standard', 'price' => 200], ['name' => 'premium', 'price' => 150], ['name' => 'personnalisé', 'price' => 0]];
+        foreach($names as $key => $value) {
+            factory(App\Formules::class, 1)->create(['name' => $value['name'], 'price' => $value['price']]);
         }
     }
 }

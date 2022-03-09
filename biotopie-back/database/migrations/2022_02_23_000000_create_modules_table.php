@@ -15,6 +15,7 @@ class CreateModulesTable extends Migration {
         Schema::create("modules", function (Blueprint $table) {
             $table->bigIncrements(Modules::ID)->autoIncrement();
             $table->string(Modules::NAME);
+            $table->integer(Modules::PRICE);
         });
     }
 

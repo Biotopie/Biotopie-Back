@@ -15,6 +15,7 @@ class CreateFormulesTable extends Migration {
         Schema::create("formules", function (Blueprint $table) {
             $table->bigIncrements(Formules::ID)->autoIncrement();
             $table->string(Formules::NAME);
+            $table->integer(Formules::PRICE);
         });
     }
 
