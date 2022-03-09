@@ -14,3 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('cors')->post('/simulation', 'EstimateController@handleGetSimulation');
+
+Route::middleware('cors')->post('/contact', 'FormsController@handleGetContactForm');

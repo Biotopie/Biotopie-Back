@@ -12,11 +12,12 @@ class Forms extends Model {
 
     const ID = "id";
     const NAME_SOCIETY = "nameSociety";
-    const CONTENT = "content";
     const EMAIL = "email";
+    const SUBJECT = "subject";
+    const CONTENT = "content";  
     const DATE = "date";
 
     protected $fillable = [
-        "id", "nameSociety", "content", "email", "date"
+        "id", "nameSociety", "email", "subject", "content", "date"
     ];
 }
