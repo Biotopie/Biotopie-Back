@@ -13,7 +13,7 @@ class EstimateController extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function handleGetSimulation(Request $request){
+    public function handleGetSimulation(MailController $mail, Request $request){
         $body = json_decode($request->getContent(), true);
         $idFormule = RequeteService::getFormuleId($body['formule']);
         $allModulesData = $body['modules']['items'];
@@ -27,6 +27,7 @@ class EstimateController extends BaseController
         foreach($idModules as $idModule) {
             RequeteService::createEstimateFormuleModule($newEstimate['id'], $idFormule['id'], $idModule['id']);
         }
+        $mail->basic_email($body['email'], $idModules, $idFormule['id']);
         return $request;
     }
 }

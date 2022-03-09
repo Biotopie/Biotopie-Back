@@ -28,6 +28,14 @@ class RequeteService {
         return Modules::select(Modules::ID)->whereIn(Modules::NAME, $names)->get();
     }
 
+    static public function getFormuleData($id) {
+        return Formules::select(Formules::PRICE, Formules::NAME)->where(Formules::ID, $id)->get()->first();
+    }
+
+    static public function getModuleData($id) {
+        return Modules::select(Modules::PRICE, Modules::NAME)->where(Modules::ID, $id)->get()->first();
+    }
+
     static public function createEstimate($email, $nameSociety) {
         return Estimates::create([
             "email" => $email,
