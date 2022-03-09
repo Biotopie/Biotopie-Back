@@ -13,10 +13,11 @@ class FormsController extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function handleGetContactForm(Request $request){
+    public function handleGetContactForm(MailController $mail, Request $request){
         $body = json_decode($request->getContent(), true);
         $date = date('Y-m-d H:i:s');
         $newForm = RequeteService::createForms($body['nameSociety'], $body['email'], $body['subject'], $body['content'], $date);
+        $mail->contact_email($body['nameSociety'], $body['email'], $body['subject'], $body['content']);
         return $request;
     }
 

@@ -19,13 +19,21 @@ class MailController extends Controller
         }
         $price = $formule['price'] + $priceModule;
         $formule = $formule['name'];
-        file_put_contents('debug.txt', print_r($formule, TRUE), FILE_APPEND);
-        file_put_contents('debug.txt', print_r($moduleName, TRUE), FILE_APPEND);
+
         Mail::send(['text'=>'emails.template'], ['price' => $price, 'formule' => $formule, 'module' => $moduleName], function($message) use ($mail) {
             $message->to($mail, $mail);
             $message->subject('Estimation de devis');
             $message->from('biotopie@gmail.com','BIOTOPIE');
         });
         echo "Basic Email Sent. Check your inbox.";
+    }
+
+    public function contact_email($nameSociety, $mail, $subject, $content) {
+        Mail::send(['text'=>'emails.contact_template'], ['nameSociety' => $nameSociety, 'mail' => $mail, 'subject' => $subject, 'content' => $content], function($message) use ($mail) {
+            $message->to('romain.axilais@ynov.com','BIOTOPIE');
+            $message->subject('Nouvelle demande de contact');
+            $message->from('biotopie@gmail.com', $mail);
+        });
+        echo "Contact Email Sent. Check your inbox.";
     }
 }
