@@ -15,10 +15,12 @@ class FormsController extends BaseController
 
     public function handleGetContactForm(MailController $mail, Request $request){
         $body = json_decode($request->getContent(), true);
+        if (!filter_var( $body['email'], FILTER_VALIDATE_EMAIL)) return response()->json('mail',403);
+        if ($body['email'] === "" || $body['nameSociety'] === "" || $body['subject'] === "" || $body['content'] === "") return response()->json('champs',403);
         $date = date('Y-m-d H:i:s');
-        $newForm = RequeteService::createForms($body['nameSociety'], $body['email'], $body['subject'], $body['content'], $date);
+        RequeteService::createForms($body['nameSociety'], $body['email'], $body['subject'], $body['content'], $date);
         $mail->contact_email($body['nameSociety'], $body['email'], $body['subject'], $body['content']);
-        return $request;
+        return response($request, 200);
     }
 
 
