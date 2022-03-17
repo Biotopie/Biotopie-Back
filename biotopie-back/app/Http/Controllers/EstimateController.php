@@ -15,8 +15,9 @@ class EstimateController extends BaseController
 
     public function handleGetSimulation(MailController $mail, Request $request){
         $body = json_decode($request->getContent(), true);
-        if (!filter_var( $body['email'], FILTER_VALIDATE_EMAIL)) return response()->json('mail',403);
-        if ($body['email'] === "" || $body['nameSociety'] === "") return response()->json('champs',403);
+        $email = strtolower($body['email']);
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) return response()->json('mail',403);
+        if ($email === "" || $body['nameSociety'] === "") return response()->json('champs',403);
 
         $idFormule = RequeteService::getFormuleId($body['formule']);
         $allModulesData = $body['modules']['items'];
@@ -25,12 +26,12 @@ class EstimateController extends BaseController
             $modulesName[] = strtolower($modules['content']);
         }
         $idModules = RequeteService::getModulesId($modulesName);
-        $newEstimate = RequeteService::createEstimate($body['email'], $body['nameSociety']);
+        $newEstimate = RequeteService::createEstimate($email, $body['nameSociety']);
 
         foreach($idModules as $idModule) {
             RequeteService::createEstimateFormuleModule($newEstimate['id'], $idFormule['id'], $idModule['id']);
         }
-        $mail->basic_email($body['email'], $idModules, $idFormule['id']);
+        $mail->basic_email($email, $idModules, $idFormule['id']);
         return response($request, 200);
     }
 }
