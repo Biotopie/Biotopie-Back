@@ -23,16 +23,16 @@ class MailController extends Controller
         Mail::send(['text'=>'emails.template'], ['price' => $price, 'formule' => $formule, 'module' => $moduleName], function($message) use ($mail) {
             $message->to($mail, $mail);
             $message->subject('Estimation de devis');
-            $message->from('biotopie@gmail.com','BIOTOPIE');
+            $message->from('biotopie.company@gmail.com','BIOTOPIE');
         });
         echo "Basic Email Sent. Check your inbox.";
     }
 
     public function contact_email($nameSociety, $mail, $subject, $content) {
         Mail::send(['text'=>'emails.contact_template'], ['nameSociety' => $nameSociety, 'mail' => $mail, 'subject' => $subject, 'content' => $content], function($message) use ($mail) {
-            $message->to('romain.axilais@ynov.com','BIOTOPIE');
+            $message->to('biotopie.company@gmail.com','BIOTOPIE');
             $message->subject('Nouvelle demande de contact');
-            $message->from('biotopie@gmail.com', $mail);
+            $message->from('biotopie.company@gmail.com', $mail);
         });
         echo "Contact Email Sent. Check your inbox.";
     }
