@@ -13,6 +13,7 @@ class CreateEstimateformulemoduleTable extends Migration {
      */
     public function up() {
         Schema::create("estimateformulemodule", function (Blueprint $table) {
+            $table->bigIncrements(EstimateFormuleModule::ID)->autoIncrement();
             $table->unsignedBigInteger(EstimateFormuleModule::ID_ESTIMATE);
             $table->unsignedBigInteger(EstimateFormuleModule::ID_FORMULE);
             $table->unsignedBigInteger(EstimateFormuleModule::ID_MODULE);
