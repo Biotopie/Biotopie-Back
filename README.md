@@ -1,4 +1,4 @@
-# Biotopie Back
+<b>Biotopie Back</b>
 
 INSTALLATION
 
@@ -16,7 +16,6 @@ npm run dev (la commande se lance 1 fois) ou npm run watch (la commande se lance
 
 php artisan serve
 
-
 BASE DE DONNEES
 
 lancer laragon ou wampp ou ...
@@ -26,3 +25,7 @@ dans le fichier .env changer DB_DATABASE=laravel par DB_DATABASE=biotopie, véri
 php artisan db:create (créer une base de données nommé biotopie)
 
 php artisan migrate (ajoute les données dans la base)
+
+composer dump-autoload
+
+php artisan migrate:fresh --seed (mettre à jour les tables dans la base de données)
