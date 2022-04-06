@@ -10,17 +10,14 @@ class MailController extends Controller
 {
     public function basic_email($mail, $modules, $formule) {
         $formule = RequeteService::getFormuleData($formule);
-        $priceModule = 0;
-        $moduleName = [];
+        $data = [];
         foreach($modules as $module) {
-            $moduleData = RequeteService::getModuleData($module['id']);
-            $priceModule = $priceModule + $moduleData['price'];
-            $moduleName[] = $moduleData['name'];
-        }
-        $price = $formule['price'] + $priceModule;
-        $formule = $formule['name'];
 
-        Mail::send(['text'=>'emails.template'], ['price' => $price, 'formule' => $formule, 'module' => $moduleName], function($message) use ($mail) {
+            $moduleData = RequeteService::getModuleData($module['id']);
+            $data[] = ['name' => $moduleData['name'], 'price' => $moduleData['price']];
+        }
+
+        Mail::send(['text'=>'emails.template'], ['formulePrice' => $formule['price'], 'formule' => $formule['name'], 'moduleData' => $data], function($message) use ($mail) {
             $message->to($mail, $mail);
             $message->subject('Estimation de devis');
             $message->from('biotopie@gmail.com','BIOTOPIE');

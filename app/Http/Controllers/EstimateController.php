@@ -21,9 +21,12 @@ class EstimateController extends BaseController
 
         $idFormule = RequeteService::getFormuleId($body['formule']);
         $allModulesData = $body['modules']['items'];
+
         $modulesName = [];
         foreach($allModulesData as $modules) {
-            $modulesName[] = strtolower($modules['content']);
+            $modulesName[] = $modules['content'];
+
+            file_put_contents('debug.txt', print_r($modulesName, TRUE), FILE_APPEND);
         }
         $idModules = RequeteService::getModulesId($modulesName);
         $newEstimate = RequeteService::createEstimate($email, $body['nameSociety']);
